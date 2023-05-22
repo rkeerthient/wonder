@@ -232,7 +232,7 @@ const LocalCuisine: Template<TemplateRenderProps> = ({
           </div>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4 pb-16">
           <p className="text-3xl font-bold text-center mt-12">
             {c_cuisineSectionHeader}
           </p>

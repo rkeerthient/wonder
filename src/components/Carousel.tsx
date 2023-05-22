@@ -63,7 +63,7 @@ const Carousel = (props: any) => {
                 )}
                 <a
                   href={item.menuUrl}
-                  className="p-4 bg-black text-white hover:border hover:border-black hover:bg-white hover:text-black"
+                  className="p-4 border bg-black text-white hover:border hover:border-black hover:bg-white hover:text-black"
                 >
                   View menu
                 </a>

@@ -162,7 +162,6 @@ const LocalCuisine: Template<TemplateRenderProps> = ({
     c_headerImage,
     c_footerImage,
   } = document;
-  console.log(JSON.stringify(c_restaurants));
 
   return (
     <>
@@ -222,7 +221,7 @@ const LocalCuisine: Template<TemplateRenderProps> = ({
                   <div>{item.description}</div>
                   <a
                     href={item.menuUrl}
-                    className="p-4 w-fit bg-black text-white hover:border hover:border-black hover:bg-white hover:text-black"
+                    className="p-4 w-fit border bg-black text-white hover:border hover:border-black hover:bg-white hover:text-black"
                   >
                     View menu
                   </a>

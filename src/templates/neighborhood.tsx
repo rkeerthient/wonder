@@ -25,6 +25,7 @@ import { Image } from "@yext/pages/components";
 import Carousel from "../components/Carousel";
 import RTF from "../components/RTF";
 import Cuisines from "../components/cuisines";
+import Schema from "../components/Schema";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -49,6 +50,10 @@ export const config: TemplateConfig = {
       "c_restaurants.logo",
       "c_restaurants.c_cuisine.name",
       "c_restaurants.menuUrl",
+      "c_restaurants.address",
+      "c_restaurants.hours",
+      "c_restaurants.priceRange",
+      "c_restaurants.mainPhone",
       "c_restaurantSectionHeader",
       "c_cuisineSectionHeader",
       "c_cuisine.name",
@@ -136,6 +141,7 @@ const Neighborhood: Template<TemplateRenderProps> = ({
   path,
   document,
 }) => {
+  const _cpy = document;
   const {
     _site,
     name,
@@ -151,10 +157,10 @@ const Neighborhood: Template<TemplateRenderProps> = ({
     c_pageTitle,
     c_localCuisinePage,
   } = document;
-  console.log(c_localCuisinePage);
 
   return (
     <>
+      <Schema document={_cpy}></Schema>
       <Image image={c_headerImage} className="!max-w-full  " />
       <div className="centered-container py-8">
         <div className="section space-y-4">

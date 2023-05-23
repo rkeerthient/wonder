@@ -9,7 +9,6 @@ import { BsPhone } from "react-icons/bs";
 
 const Carousel = (props: any) => {
   const { data } = props;
-  console.log(JSON.stringify(data));
 
   const settings = {
     dots: false,

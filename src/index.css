@@ -28,7 +28,7 @@ body {
   margin-right: 1em;
   font-size: 2em;
   line-height: 0.5em;
-  color: orange;
+  color: #122219;
 }
 .accordion__button[aria-expanded="true"]::before,
 .accordion__button[aria-selected="true"]::before {
@@ -52,7 +52,7 @@ body {
 
 .slick-prev::before,
 .slick-next::before {
-  color: orange !important;
+  color: #122219 !important;
   font-size: 2rem !important;
 }
 

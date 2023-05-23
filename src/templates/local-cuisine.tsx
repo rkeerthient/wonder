@@ -24,6 +24,7 @@ import "../index.css";
 import { Image } from "@yext/pages/components";
 import Carousel from "../components/Carousel";
 import HoursText from "../components/HoursText";
+import RTF from "../components/RTF";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -56,6 +57,8 @@ export const config: TemplateConfig = {
       "c_restaurantSectionHeader",
       "c_cuisineSectionHeader",
       "c_cuisine.name",
+      "c_cuisine.slug",
+      "c_pageTitle",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -161,17 +164,18 @@ const LocalCuisine: Template<TemplateRenderProps> = ({
     c_cuisineSectionHeader,
     c_headerImage,
     c_footerImage,
+    c_pageTitle,
   } = document;
 
   return (
     <>
-      <Image image={c_headerImage} />
-      <div className="centered-container">
+      <Image image={c_headerImage} className="!max-w-full  " />
+      <div className="centered-container py-8">
         <div className="section space-y-4">
-          <h1 className="text-3xl font-bold">{name}</h1>
+          <h1 className="text-3xl font-bold">{c_pageTitle}</h1>
           <div className="flex flex-row p-4 bg-white">
             <div className="w-3/5 my-auto">
-              {c_sEOLocalCuisinePageDescription}
+              <RTF>{c_sEOLocalCuisinePageDescription}</RTF>
             </div>
             <div className="!w-2/5">
               <Image image={c_bannerImage}></Image>
@@ -219,12 +223,14 @@ const LocalCuisine: Template<TemplateRenderProps> = ({
                   </div>
 
                   <div>{item.description}</div>
-                  <a
-                    href={item.menuUrl}
-                    className="p-4 w-fit border bg-black text-white hover:border hover:border-black hover:bg-white hover:text-black"
-                  >
-                    View menu
-                  </a>
+                  {item.menuUrl && (
+                    <a
+                      href={item.menuUrl.url}
+                      className="p-4 w-fit border bg-black text-white hover:border hover:border-black hover:bg-white hover:text-black"
+                    >
+                      View menu
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
@@ -237,14 +243,17 @@ const LocalCuisine: Template<TemplateRenderProps> = ({
           </p>
           <div className="grid grid-cols-4 gap-6">
             {c_cuisine.map((item: any, index: any) => (
-              <div className="p-4 border border-black" key={index}>
-                {item.name}
+              <div
+                className="p-4 border border-black text-center  hover:cursor-pointer hover:bg-black hover:text-white"
+                key={index}
+              >
+                <a href={"/local-cuisine/1386601966200702126"}>{item.name} </a>
               </div>
             ))}
           </div>
         </div>
       </div>
-      <Image image={c_footerImage} />
+      <Image image={c_footerImage} className="!max-w-full  " />
     </>
   );
 };

@@ -9,6 +9,7 @@ import { BsPhone } from "react-icons/bs";
 
 const Carousel = (props: any) => {
   const { data } = props;
+  console.log(JSON.stringify(data));
 
   const settings = {
     dots: false,
@@ -61,12 +62,14 @@ const Carousel = (props: any) => {
                 ) : (
                   <div className="h-4 invisible">Hi</div>
                 )}
-                <a
-                  href={item.menuUrl}
-                  className="p-4 border bg-black text-white hover:border hover:border-black hover:bg-white hover:text-black"
-                >
-                  View menu
-                </a>
+                {item.menuUrl && (
+                  <a
+                    href={item.menuUrl.url}
+                    className="p-4 border bg-black text-white hover:border hover:border-black hover:bg-white hover:text-black"
+                  >
+                    View menu
+                  </a>
+                )}
               </div>
             </div>
           </div>

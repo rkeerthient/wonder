@@ -23,6 +23,7 @@ import PageLayout from "../components/page-layout";
 import "../index.css";
 import { Image } from "@yext/pages/components";
 import Carousel from "../components/Carousel";
+import RTF from "../components/RTF";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -49,6 +50,9 @@ export const config: TemplateConfig = {
       "c_restaurants.menuUrl",
       "c_restaurantSectionHeader",
       "c_cuisineSectionHeader",
+      "c_cuisine.name",
+      "c_cuisine.slug",
+      "c_pageTitle",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -138,17 +142,20 @@ const Neighborhood: Template<TemplateRenderProps> = ({
     c_restaurantSectionHeader,
     c_cuisineSectionHeader,
     c_headerImage,
+    c_cuisine,
     c_footerImage,
+    c_pageTitle,
   } = document;
-
   return (
     <>
-      <Image image={c_headerImage} />
-      <div className="centered-container">
+      <Image image={c_headerImage} className="!max-w-full  " />
+      <div className="centered-container py-8">
         <div className="section space-y-4">
-          <h1 className="text-3xl font-bold">{name}</h1>
+          <h1 className="text-3xl font-bold">{c_pageTitle}</h1>
           <div className="flex flex-row p-4 bg-white">
-            <div className="w-3/5 my-auto">{c_sEOPageDescription}</div>
+            <div className="w-3/5 my-auto">
+              <RTF>{c_sEOPageDescription}</RTF>
+            </div>
             <div className="!w-2/5">
               <Image image={c_bannerImage}></Image>
             </div>
@@ -160,8 +167,11 @@ const Neighborhood: Template<TemplateRenderProps> = ({
           </p>
           <div className="grid grid-cols-4 gap-6">
             {c_cuisines.map((item: string, index: any) => (
-              <div className="p-4 border border-black" key={index}>
-                {item}
+              <div
+                className="p-4 border border-black hover:bg-black hover:text-white hover:cursor-pointer"
+                key={index}
+              >
+                <a href={"/local-cuisine/1386601966200702126"}>{item} </a>
               </div>
             ))}
           </div>
@@ -172,14 +182,16 @@ const Neighborhood: Template<TemplateRenderProps> = ({
           </p>
           <Carousel data={c_restaurants}></Carousel>
           <div
-            className="border w-fit mx-auto px-4 py-2 text-center my-6"
+            className="border w-fit mx-auto px-4 py-2 text-center my-6 hover:cursor-pointer hover:bg-black hover:text-white"
             style={{ background: "#faf5ee" }}
           >
-            View All Restaurants
+            <a href="https://www.wonder.com/restaurants">
+              View All Restaurants
+            </a>
           </div>
         </div>
       </div>
-      <Image image={c_footerImage} />
+      <Image image={c_footerImage} className="!max-w-full  " />
     </>
   );
 };

@@ -21,18 +21,19 @@
     "node": ">=17"
   },
   "dependencies": {
+    "@types/react-slick": "^0.23.10",
     "@yext/search-headless-react": "^2.1.0",
     "@yext/search-ui-react": "^1.1.0",
-   "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-showdown": "^2.3.1",
+    "markdown-to-jsx": "^7.2.0",
+    "react": "^17.0.2",
     "react-accessible-accordion": "^5.0.0",
-    "react-slick": "^0.29.0",
-    "@types/react-slick": "^0.23.10",
-    "slick-carousel": "^1.8.1",
+    "react-dom": "^17.0.2",
     "react-icons": "^4.7.1",
     "react-schemaorg": "^2.0.0",
-    "schema-dts": "^1.1.0" 
+    "react-showdown": "^2.3.1",
+    "react-slick": "^0.29.0",
+    "schema-dts": "^1.1.0",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@types/react": "^17.0.49",

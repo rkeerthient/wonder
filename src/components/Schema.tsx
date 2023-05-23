@@ -17,6 +17,7 @@ const Schema = (props: any) => {
   if (document.c_restaurants) {
     document.c_restaurants.map((item: any) =>
       itemListElement.push({
+        "@type": "Restaurant",
         address: {
           "@type": "PostalAddress",
           addressLocality: item.address.city,
@@ -46,7 +47,7 @@ const Schema = (props: any) => {
           "@context": "https://schema.org",
           "@type": "Place",
           name,
-          description,
+          description: document.c_sEOPageDescription,
         }}
       />
       <JsonLd<ItemList>

@@ -24,6 +24,7 @@ import "../index.css";
 import { Image } from "@yext/pages/components";
 import Carousel from "../components/Carousel";
 import RTF from "../components/RTF";
+import Cuisines from "../components/cuisines";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -53,6 +54,9 @@ export const config: TemplateConfig = {
       "c_cuisine.name",
       "c_cuisine.slug",
       "c_pageTitle",
+      "c_localCuisinePage.name",
+      "c_localCuisinePage.slug",
+      "c_localCuisinePage.c_cuisines",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -145,37 +149,29 @@ const Neighborhood: Template<TemplateRenderProps> = ({
     c_cuisine,
     c_footerImage,
     c_pageTitle,
+    c_localCuisinePage,
   } = document;
+  console.log(c_localCuisinePage);
+
   return (
     <>
       <Image image={c_headerImage} className="!max-w-full  " />
       <div className="centered-container py-8">
         <div className="section space-y-4">
-          <h1 className="text-3xl font-bold">{c_pageTitle}</h1>
           <div className="flex flex-row p-4 bg-white">
             <div className="w-3/5 my-auto">
+              <h1 className="text-3xl font-bold mb-8">{c_pageTitle}</h1>
               <RTF>{c_sEOPageDescription}</RTF>
             </div>
-            <div className="!w-2/5">
+            <div className="!w-2/5 my-auto">
               <Image image={c_bannerImage}></Image>
             </div>
           </div>
         </div>
-        <div className="space-y-4">
-          <p className="text-3xl font-bold text-center">
-            {c_cuisineSectionHeader}
-          </p>
-          <div className="grid grid-cols-4 gap-6">
-            {c_cuisines.map((item: string, index: any) => (
-              <div
-                className="p-4 border border-black hover:bg-black hover:text-white hover:cursor-pointer"
-                key={index}
-              >
-                <a href={"/local-cuisine/1386601966200702126"}>{item} </a>
-              </div>
-            ))}
-          </div>
-        </div>
+        <Cuisines
+          cuisine={c_localCuisinePage}
+          title={c_cuisineSectionHeader}
+        ></Cuisines>
         <div className="space-y-4 bg-white mt-16 py-8 ">
           <p className="text-3xl font-bold text-center">
             {c_restaurantSectionHeader}
